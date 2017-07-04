@@ -1,0 +1,8 @@
+.selectmenu {
+    cursor:pointer;
+    display:inline-block;
+    position:relative;
+    font:normal 14px/22px Arial, Sans-Serif;
+    color:black;
+    border:1px solid #ccc;
+}

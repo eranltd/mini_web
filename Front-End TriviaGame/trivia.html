@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Panhale Trivia Tournament</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/footer-distributed-with-address-and-phones.css">
+
+  
+</head>
+<body>
+
+<div class="jumbotron text-center">
+  <h1>Panhale Trivia Tournament</h1>
+  <p>Multiple Choice Quiz / Wrong-Right Quiz with jQuery and Bootstrap</p>
+  <p>Plase choose game settings:</p> 
+
+  <div class="container-fluid">
+  
+    <div class="col-sm-6">
+      <p>Questions Type:<form action="#">
+    <select name="data[question]" class="selectmenu" id="questiontypeselector">
+    <optgroup label="Question type">
+        <option value="multiple">Multiple Questions</option>
+        <option value="boolean">Right or Wrong</option>
+    </optgroup>
+</select>
+</form></p>
+    </div>
+    <div class="col-sm-6">
+      <p>Category:<form action="#">
+    <select name="data[catselector]" class="selectmenu" id='catselector'>
+    <optgroup label="Trivia Category">
+      <option value="9">General Knowledge</option><option value="10">Entertainment: Books</option><option value="11">Entertainment: Film</option><option value="12">Entertainment: Music</option><option value="13">Entertainment: Musicals &amp; Theatres</option><option value="14">Entertainment: Television</option><option value="15">Entertainment: Video Games</option><option value="16">Entertainment: Board Games</option><option value="17">Science &amp; Nature</option><option value="18">Science: Computers</option><option value="19">Science: Mathematics</option><option value="20">Mythology</option><option value="21">Sports</option><option value="22">Geography</option><option value="23">History</option><option value="24">Politics</option><option value="25">Art</option><option value="26">Celebrities</option><option value="27">Animals</option><option value="28">Vehicles</option><option value="29">Entertainment: Comics</option><option value="30">Science: Gadgets</option><option value="31">Entertainment: Japanese Anime &amp; Manga</option><option value="32">Entertainment: Cartoon &amp; Animations</option>
+    </optgroup>
+   
+</select>
+</form></p>
+    </div>
+
+</div>
+<br>
+<button class="btn btn-lg btn-primary" id="lets_play_button">Let's play - Bring me a question!<span class="glyphicon glyphicon-play-circle"></span></button>
+    </div>
+
+<div class="container">
+  <div class="row" id="questionHere">
+  <!-- Insert Dynamiclly question from API here using JQUery -->
+  <h6>To Start please click on "Let's Play' button</h6>
+
+
+  </div>
+  <button class="btn btn-lg btn-primary" style="display:none" id="submit_button">Submit Answer</button>
+</div>
+
+<footer class="footer-distributed">
+
+      <div class="footer-left">
+      </div>
+
+      <div class="footer-center">
+        <div>
+          <i class="fa fa-map-marker" ></i>
+          <p id="counter"><span>Score:</span> 0</p>
+        </div>
+
+        <div>
+          <i class="fa fa-map-marker" ></i>
+          <p id="total_questions"><span>Total Questions:</span> 0</p>
+        </div>
+
+        <div>
+          <i class="fa fa-map-marker" ></i>
+          <p id="success_rate"><span>Success Rate:</span> 0</p>
+        </div>
+
+        <div>
+          <i class="fa fa-phone" ></i>
+          <p id="level"><span>Level:</span> easy</p>
+        </div>
+
+        <div>
+          <i class="fa fa-envelope"></i>
+          <p><a href="mailto:eranltd@gmail.com">eranltd@gmail.com</a></p>
+        </div>
+
+      </div>
+
+      <div class="footer-right">
+      </div>
+
+    </footer>
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+<script type="text/javascript" src="js/trivia.js"></script>
+</body>
+</html>
