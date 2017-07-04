@@ -1,0 +1,176 @@
+<html>
+<head>
+<title>This is a Base converter page</title>
+</head>
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <style>
+</style>
+<body>
+
+Enter your Number: <input id = "usrInput" type="text" placeholder="enter your number here"><br>
+<br>
+
+Choose your number base(the one you've entered at the top)
+
+<select id = "mySelectsrc">
+  <option value="dec">Decimal</option>
+  <option value="bin">Binary</option>
+  <option value="hex">Hexadecimal</option>
+</select>
+
+<br>
+Choose your desired base and click submit:
+
+<select id = "mySelectdst">
+  <option value="dec">Decimal</option>
+  <option value="bin">Binary</option>
+  <option value="hex">Hexadecimal</option>
+</select>
+
+<br>
+
+<br>
+<button style="left: 175px;position: absolute;"class="w3-btn w3-ripple w3-green" onclick="displayAnswer()">Submit</button>
+
+<br>
+<br>
+<br>
+
+<label for="output">The Result is: </label><input id="resultBox"type="textbox" name="output"></input>
+
+<script>
+(function(){
+
+    var ConvertBase = function (num) {
+        return {
+            from : function (baseFrom) {
+                return {
+                    to : function (baseTo) {
+                        return parseInt(num, baseFrom).toString(baseTo);
+                    }
+                };
+            }
+        };
+    };
+        
+    // binary to decimal
+    ConvertBase.bin2dec = function (num) {
+        return ConvertBase(num).from(2).to(10);
+    };
+    
+    // binary to hexadecimal
+    ConvertBase.bin2hex = function (num) {
+        return ConvertBase(num).from(2).to(16);
+    };
+    
+    // decimal to binary
+    ConvertBase.dec2bin = function (num) {
+        return ConvertBase(num).from(10).to(2);
+    };
+    
+    // decimal to hexadecimal
+    ConvertBase.dec2hex = function (num) {
+        return ConvertBase(num).from(10).to(16);
+    };
+    
+    // hexadecimal to binary
+    ConvertBase.hex2bin = function (num) {
+        return ConvertBase(num).from(16).to(2);
+    };
+    
+    // hexadecimal to decimal
+    ConvertBase.hex2dec = function (num) {
+        return ConvertBase(num).from(16).to(10);
+    };
+    
+    this.ConvertBase = ConvertBase;
+    
+})(this);
+
+/*
+* Usage example:
+* ConvertBase.bin2dec('111'); // '7'
+* ConvertBase.dec2hex('42'); // '2a'
+* ConvertBase.hex2bin('f8'); // '11111000'
+* ConvertBase.dec2bin('22'); // '10110'
+*/
+
+function displayAnswer() {
+
+	var srcReqConvertType = document.getElementById("mySelectsrc").selectedIndex;
+	var dstReqConvertType = document.getElementById("mySelectdst").selectedIndex;
+	var userInput = document.getElementById("usrInput").value;
+	var resHolder = document.getElementById("resultBox");
+
+    
+    //console.log(srcReqConvertType);
+    //console.log(dstReqConvertType);
+
+    //console.log(reqConvertType);
+	//console.log(userInput);
+
+	switch(srcReqConvertType) {
+        case 0: //the user entered an decimal number
+        if(dstReqConvertType == 0)//dec to dec
+        {
+       	 	alert(userInput);
+	   	 	resHolder.value = userInput;
+        }
+        if(dstReqConvertType == 1) //dec to binary
+        {
+         	alert(ConvertBase.dec2bin(userInput));
+		   	resHolder.value = ConvertBase.dec2bin(userInput);
+        }
+        if(dstReqConvertType == 2) //dec to hex
+        {
+         	alert(ConvertBase.dec2hex(userInput));
+		  	resHolder.value = ConvertBase.dec2hex(userInput);
+        }
+        break;
+
+
+
+        case 1://the user entered an binary number
+		 if(dstReqConvertType == 0)//bin to dec
+        {
+       	 	alert(ConvertBase.bin2dec(userInput));
+		  	resHolder.value = ConvertBase.bin2dec(userInput);
+        }
+        if(dstReqConvertType == 1) //bin to binary
+        {
+         	alert(userInput);
+	   	 	resHolder.value = userInput;
+        }
+        if(dstReqConvertType == 2) //bin to hex
+        {
+         	alert(ConvertBase.bin2hex(userInput));
+		  	resHolder.value = ConvertBase.bin2hex(userInput);
+        }
+        break;
+        
+        case 2://the user entered an hex number
+		 if(dstReqConvertType == 0)//hex to dec
+        {
+       	 	alert(ConvertBase.hex2dec(userInput));
+		   	resHolder.value = ConvertBase.hex2dec(userInput);
+        }
+        if(dstReqConvertType == 1) //hex to binary
+        {
+         	alert(ConvertBase.hex2bin(userInput));
+		   	resHolder.value = ConvertBase.hex2bin(userInput);
+        }
+        if(dstReqConvertType == 2) //hex to hex
+        {
+         	alert(userInput);
+	   	 	resHolder.value = userInput;
+        }
+		 
+		 default:
+    }
+
+}
+
+
+</script>
+</body>
+</html>

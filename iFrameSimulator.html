@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>This is an HTML emulator</title>
+</head>
+
+<style>
+
+
+#pagecontainer{
+	width: 1000px;
+}
+
+
+#textareaCode{
+	float: left;
+	position: relative;
+    background-color: #6CAF66;
+    border: dashed;
+    color: white;
+    padding: 15px 32px;
+    text-align: left;
+    font-size: 14px;
+    left: 5px;
+    top: 50px;
+    overflow-y: scroll;
+    resize: none; /* Remove this if you want the user to resize the textarea */
+  	border: 2px solid #333;
+
+}
+
+#iframecontainer
+{
+	position: relative;
+    float: right;
+	border: 2px solid #333;
+	width: 574px;
+	height: 370px;
+	left: 157px;
+    top: -324px;
+
+
+}
+
+#iframearea{
+
+	position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+}
+
+.button {
+	background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+#buttonRelative
+{	
+	position: relative;
+	float: left;
+}
+
+
+</style>
+<body>
+
+
+<p id = "textLine" >Try It yourself, write a piece of HTML code and click "Run"</p>
+
+
+<button class = "button" type="button" onclick="loadHTML()">Run!</button>
+<button class = "button" type="button" onclick="clearHTML()">Clear!</button>
+
+<br>
+
+<div id="pagecontainer">
+<div id="textareawrapper">
+<textarea autocomplete="off" id="textareaCode" wrap="logical" spellcheck="false" style="display: true;" cols="70" rows="20">
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;title&gt;Page Title&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;h1&gt;This is a Heading&lt;/h1&gt;
+&lt;p&gt;This is a paragraph.&lt;/p&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</textarea>
+  </div>
+
+
+<div id="iframecontainer">
+    <div id="iframe">
+       <iframe id="iframearea" >
+ 		 <p>Your browser does not support iframes.</p>
+		</iframe>
+    </div>
+</div>
+
+</div>
+
+
+<script>
+var htmlCode="";
+function loadHTML() {
+	alert("look its a magic!");
+	var textArea = document.getElementById('textareaCode'); 
+    var iframArea = document.getElementById("iframearea").contentWindow.document;
+    
+    htmlCode = textArea.value;
+    iframArea.open();
+	iframArea.writeln(htmlCode);
+	iframArea.close();
+}
+
+function clearHTML() {
+    var iframArea = document.getElementById("iframearea").contentWindow.document;
+
+    iframArea.open();
+	iframArea.writeln("");
+	iframArea.close();
+}
+
+
+</script>
+
+
+
+</body>
+</html>
